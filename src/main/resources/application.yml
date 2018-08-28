@@ -1,0 +1,29 @@
+server:
+  port: 22022
+  servlet:
+    context-path: /api
+    
+### 配置数据库的连接方式
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:system.db
+    username:
+    password:
+### sqlite需要自己配置连接方式
+  jpa:
+    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+logging:
+  level:
+    org.springframework.security: debug
+jwt:
+  header: authorization
+  secret: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+  expiration: 7200
+  refresh_expiration: 86400
+  token:
+    head: Bearer
